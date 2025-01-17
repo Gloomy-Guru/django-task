@@ -1,0 +1,13 @@
+---
+
+services:
+  web:
+    build: .
+    command: gunicorn --bind 0.0.0.0:8000 djangotask.wsgi:application
+    ports:
+      - "80:8000"
+    volumes:
+      - "database:/app"
+
+volumes:
+  database:
